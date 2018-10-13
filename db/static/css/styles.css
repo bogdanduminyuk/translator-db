@@ -1,0 +1,47 @@
+body {
+    background: lightblue;
+    display: none;
+}
+
+table ul {
+    padding-left: 1em;
+}
+
+.table-result {
+    background-color: rgba(45,45,45,0.89);
+}
+
+.table-result th,
+.table-result thead th, 
+.table-result td {
+    border-color: gray;
+}
+
+.error-result td,
+.error-result th {
+    background-color: #007bff42;
+}
+
+
+@media only screen and (max-width: 1200px) {
+    .table {
+        font-size: 0.8em;
+    }
+
+    .table th,
+    .table td {
+        padding: 0.3rem;
+    }
+
+    .container {
+        max-width: max-content;
+     }
+}
+
+@media print
+{
+    .no-print, .no-print *
+    {
+        display: none !important;
+    }
+}

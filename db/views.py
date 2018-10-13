@@ -1,5 +1,6 @@
 from django.http import HttpResponse, HttpResponseNotFound, JsonResponse
 from django.views.decorators.csrf import csrf_exempt
+from django.shortcuts import render
 
 from .models import Word
 
@@ -45,3 +46,13 @@ def count(request):
     if request.method == "GET":
         count = len(Word.objects.all())
         return JsonResponse({"count": count})
+
+
+def show(request):
+    answer = []
+    for i, (id, word, translation, api) in enumerate(Word.objects.values_list(), 1):
+        answer.append((i, word, translation[:10], api[:10]))
+
+    return render(request, "db/show.html", {
+            "objects": answer
+        })
